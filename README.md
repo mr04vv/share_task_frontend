@@ -5,8 +5,8 @@
 ## 実行方法
 
 ```console
-git clone [this repogitory]
-cd share_task_frontend
-yarn
-yarn start
+$ git clone [this repogitory]
+$ cd share_task_frontend
+$ yarn
+$ yarn start
 ```
