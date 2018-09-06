@@ -35,7 +35,30 @@ const PostTaskFormWrapper = styled("div")`
 `;
 
 const PostTaskButton = styled("button")`
-i
+  margin: 0 auto;
+  margin-top: 30px;  
+  color: white;
+  width: 120px;
+  font-size: 14px;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  background-color: rgb(255, 152, 0);
+  border-radius: 2px;
+  border: 10px;
+  outline: none;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  transition-property: all;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0ms;
+  :hover {
+    background-color: rgb(255, 152, 0, 0.9);
+    cursor: pointer;
+  }
+  :active {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 8px, rgba(0, 0, 0, 0.23) 0px 1px 8px;
+    background-color: rgb(255, 152, 0, 0.8);
+  }
 `;
 
 export default connect()(PostTaskForm)
