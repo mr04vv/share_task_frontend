@@ -32,6 +32,7 @@ export const authenticationMiddleware = store => next => action => {
       action.data.token,
     );
     localStorage.setItem("localKey", action.data.token);
+    console.log(action.data.token)
     axios.defaults.headers.common["token"] = action.data.token;
   } else if (action.type === USER_LOGIN.LOGIN_FAIL) {
     axios.defaults.headers.common["token"] = null;

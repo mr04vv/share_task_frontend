@@ -70,7 +70,7 @@ class RegisterForm extends React.Component {
   register() {
 
     if (!this.setError()) {
-      this.props.register(this.state.userId, this.state.password)
+      this.props.register(this.state.userId, this.state.nickName, this.state.password)
         .then(() => {
           this.props.setRegisterFinish();
         })
@@ -164,9 +164,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  register: (name, pass) => {
+  register: (name, nickName, pass) => {
     const data = {
       name: name,
+      nick_name: nickName,
       password: pass
     };
     return dispatch(registerAction(data))
