@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "react-emotion"
 import {connect} from "react-redux"
+import Calendar from "react-calendar"
+import DatePicker from "react-datepicker"
 import TextInput from "../../../components/TextInput/TextInput"
 
 class PostTaskForm extends React.Component {
@@ -17,10 +19,19 @@ class PostTaskForm extends React.Component {
     }
   }
 
+
+
   render() {
     return (
     <PostTaskFormWrapper>
     <TextInput label={"タイトル"} onChange={e => this.props.handleTitleChange(e)} error={this.props.titleError}/>
+      <TextInput label={"締め切り日"} value={this.props.data} onClick={() => this.props.toggleCalendar()} />
+      {this.props.isOpenCalendar &&
+      <Calendar
+        onChange={(e) => this.props.handleDateChange(e)}
+        value={this.props.date}
+      />}
+
       <PostTaskButton onClick={() => this.props.postTask()}>追加</PostTaskButton>
     </PostTaskFormWrapper>
     )

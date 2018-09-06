@@ -24,12 +24,12 @@ const TextInput = (props) => {
    * onChange = function()
    */
 
-  const {type, id, label, error, onChange} = props;
+  const {type, id, label, error, onChange, onClick} = props;
   return (
     <MuiThemeProvider>
     <TextField type={type && type} id={id && id} floatingLabelText={label && label}
                errorText={error && error} errorStyle={errorStyle}
-               onChange={(e) => onChange(e)} hintStyle={inputStyle} style={inputStyle}/>
+               onChange={(e) => onChange(e)} hintStyle={inputStyle} style={inputStyle} onClick={() => onClick()}/>
     </MuiThemeProvider>
   )
 

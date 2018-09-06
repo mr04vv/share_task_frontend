@@ -30,6 +30,8 @@ class MyTaskList extends React.Component {
       loaded: false,
       titleError: null,
       modalIsOpen: false,
+      isOpenCalendar: false,
+      date: null,
       title: "",
       dead: {
         year: null,
@@ -75,6 +77,17 @@ class MyTaskList extends React.Component {
     })
   }
 
+  handleDateChange(data) {
+    this.setState({data})
+    console.log(data)
+    this.toggleCalendar()
+  }
+
+  toggleCalendar() {
+    this.setState({
+      isOpenCalendar: !this.state.isOpenCalendar
+    })
+  }
 
   render() {
 
@@ -101,7 +114,9 @@ class MyTaskList extends React.Component {
           onRequestClose={() => this.toggleModal()}
           contentLabel="Example Modal"
         >
-          <PostTaskForm postTask={() => this.postTask()} handleTitleChange={(e) => this.handleTitleChange(e)} titleError={this.state.titleError}/>
+          <PostTaskForm postTask={() => this.postTask()} handleTitleChange={(e) => this.handleTitleChange(e)}
+                        titleError={this.state.titleError} handleDateChange={(e) => this.handleDateChange(e)} data={this.state.date}
+                        toggleCalendar={() => this.toggleCalendar()} isOpenCalendar={this.state.isOpenCalendar}/>
         </Modal>
       </Container>
     )
