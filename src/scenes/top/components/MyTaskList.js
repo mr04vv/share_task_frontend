@@ -43,6 +43,14 @@ class MyTaskList extends React.Component {
 
   toggleModal() {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
+    this.setState({
+      title: "",
+      data: {
+        year: null,
+        month: null,
+        day: null
+      }
+    })
   }
 
 
@@ -115,7 +123,7 @@ class MyTaskList extends React.Component {
           contentLabel="Example Modal"
         >
           <PostTaskForm postTask={() => this.postTask()} handleTitleChange={(e) => this.handleTitleChange(e)}
-                        titleError={this.state.titleError} handleDateChange={(e) => this.handleDateChange(e)} data={this.state.date}
+                        titleError={this.state.titleError} handleDateChange={(e) => this.handleDateChange(e)} title={this.state.title} data={this.state.date}
                         toggleCalendar={() => this.toggleCalendar()} isOpenCalendar={this.state.isOpenCalendar}/>
         </Modal>
       </Container>

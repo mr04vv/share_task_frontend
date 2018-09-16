@@ -24,7 +24,7 @@ class PostTaskForm extends React.Component {
   render() {
     return (
     <PostTaskFormWrapper>
-    <TextInput label={"タイトル"} onChange={e => this.props.handleTitleChange(e)} error={this.props.titleError}/>
+    <TextInput label={"タイトル"} value={this.props.title} onChange={e => this.props.handleTitleChange(e)} error={this.props.titleError}/>
       <TextInput label={"締め切り日"} value={this.props.data} onClick={() => this.props.toggleCalendar()} />
       {this.props.isOpenCalendar &&
       <Calendar
@@ -32,7 +32,7 @@ class PostTaskForm extends React.Component {
         value={this.props.date}
       />}
 
-      <PostTaskButton onClick={() => this.props.postTask()}>追加</PostTaskButton>
+      <PostTaskButton onClick={() => {this.props.toggleCalendar();this.props.postTask();}}>追加</PostTaskButton>
     </PostTaskFormWrapper>
     )
   }
@@ -43,6 +43,7 @@ const TitleInput = styled("input")`
 
 const PostTaskFormWrapper = styled("div")`
   width:300px;
+  height:500px;
 `;
 
 const PostTaskButton = styled("button")`
